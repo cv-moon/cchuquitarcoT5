@@ -23,4 +23,9 @@ public partial class vPersona : ContentPage
         clvPersona.ItemsSource = people;
         lblEstatus.Text = App.personRepository.StatusMessage;
     }
+
+    public void getDataPerson()
+    {
+        var id = ((Button)sender).CommandParameter; ;
+    }
 }

@@ -58,5 +58,45 @@ namespace cchuquitarcoT5
             }
             return new List<Persona>();
         }
+
+        public Persona GetPerson(int id)
+        {
+            Init();
+            return conn.Table<Persona>().Where(x => x.Id == id).FirstOrDefault();
+        }
+
+        public void EditPerson(int id, string name)
+        {
+            int result = 0;
+            try
+            {
+                Init();
+                if (string.IsNullOrEmpty(name))
+                    throw new Exception("El campo Nombre es requerido");
+                Persona persona = conn.Table<Persona>().Where(x => x.Id == id).FirstOrDefault();
+                result = conn.Update(persona);
+                StatusMessage = string.Format("Se actualizó una persona.", result, name);
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error! no se pudo actualizar.", name, ex.Message);
+            }
+        }
+
+        public void DeletePerson(int id)
+        {
+            int result = 0;
+            try
+            {
+                Init();
+                Persona persona = conn.Table<Persona>().Where(x => x.Id == id).FirstOrDefault();
+                result = conn.Delete(persona);
+                StatusMessage = string.Format("Se eliminó el registro.");
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Error! no se pudo eliminar.", ex.Message);
+            }
+        }
     }
 }

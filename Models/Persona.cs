@@ -12,8 +12,7 @@ namespace cchuquitarcoT5.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-        [MaxLength(25), Unique]
-    
-        public string Name {  get; set; }
+        [MaxLength(25), Unique, NotNull]
+        public string Name { get; set; }
     }
 }
