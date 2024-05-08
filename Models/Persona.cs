@@ -14,5 +14,8 @@ namespace cchuquitarcoT5.Models
         public int Id { get; set; }
         [MaxLength(25), Unique, NotNull]
         public string Name { get; set; }
+        [MaxLength(25), Unique]
+        public string Lastname { get; set;}
+        public int Edad {  get; set; }
     }
 }

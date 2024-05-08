@@ -7,7 +7,7 @@
         {
             InitializeComponent();
 
-            MainPage = new Views.vPersona();
+            MainPage = new NavigationPage(new Views.vPersona());
             personRepository = personaRepository;
         }
     }

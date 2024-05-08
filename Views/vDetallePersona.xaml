@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cchuquitarcoT5.Views.vDetallePersona"
+             Title="vDetallePersona">
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" Padding="20">
+            <Image Source="user.png"
+                       HeightRequest="150"
+                       WidthRequest="150"
+                       HorizontalOptions="Center"
+                       Margin="0, 120, 0, 0">
+                <Image.Shadow>
+                    <Shadow Brush="#0487D9"
+                                Offset="0, 15"
+                                Opacity="0.6" />
+                </Image.Shadow>
+            </Image>
+            
+            <Label x:Name="lblId"
+                   IsVisible="Hidden"
+                   VerticalTextAlignment="Center"/>
+
+            <Frame BorderColor="#0487D9" BackgroundColor="Transparent">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Nombre:"
+                           Grid.Row="0"
+                           Grid.Column="0"
+                           VerticalTextAlignment="Center"/>
+
+                    <Entry x:Name="txtName"
+                           Placeholder="Ingrese nombre."
+                           Grid.Row="0"
+                           Grid.Column="1"
+                           MaxLength="25"/>
+
+                    <Label Text="Apellido:"
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           VerticalTextAlignment="Center"/>
+
+                    <Entry x:Name="txtLastname"
+                           Placeholder="Ingrese Apellido."
+                           Grid.Row="1"
+                           Grid.Column="1"
+                           MaxLength="25"/>
+
+                    <Label Text="Edad:"
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           VerticalTextAlignment="Center"/>
+
+                    <Entry x:Name="txtEdad"
+                           Placeholder="0"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           Keyboard="Numeric"/>
+
+                </Grid>
+
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
