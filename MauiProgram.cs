@@ -14,7 +14,7 @@ namespace cchuquitarcoT5
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-            string dbPath = FileAccessHelper.GetLocalFilePath("dbPersona.db3");
+            string dbPath = FileAccessHelper.GetLocalFilePath("dbPerson.db3");
             builder.Services.AddSingleton<PersonaRepository>(s => ActivatorUtilities.CreateInstance<PersonaRepository>(s, dbPath));
             
 

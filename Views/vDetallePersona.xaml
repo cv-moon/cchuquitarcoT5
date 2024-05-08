@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="cchuquitarcoT5.Views.vDetallePersona"
-             Title="vDetallePersona">
+             x:Class="cchuquitarcoT5.Views.vDetallePersona">
     <ScrollView>
         <VerticalStackLayout Spacing="25" Padding="20">
+            <StackLayout>
+                <ImageButton Clicked="btnEliminar_Clicked" 
+                             HorizontalOptions="End" 
+                             Source="trash.png" 
+                             WidthRequest="40" 
+                             Background="OrangeRed" 
+                             CornerRadius="2" 
+                             Padding="5"/>
+            </StackLayout>
             <Image Source="user.png"
-                       HeightRequest="150"
-                       WidthRequest="150"
-                       HorizontalOptions="Center"
-                       Margin="0, 120, 0, 0">
+                   HeightRequest="150"
+                   WidthRequest="150"
+                   HorizontalOptions="Center">
+                <Image.Clip>
+                    <EllipseGeometry RadiusX="75" RadiusY="75" Center="75,75" />
+                </Image.Clip>
                 <Image.Shadow>
-                    <Shadow Brush="#0487D9"
-                                Offset="0, 15"
-                                Opacity="0.6" />
+                    <Shadow Brush="White"
+                            Offset="0, 0"
+                            Opacity="0.6" />
                 </Image.Shadow>
             </Image>
-            
-            <Label x:Name="lblId"
+
+            <Label x:Name="lblCodigo"
                    IsVisible="Hidden"
-                   VerticalTextAlignment="Center"/>
+                   VerticalTextAlignment="Center" />
 
             <Frame BorderColor="#0487D9" BackgroundColor="Transparent">
                 <Grid>
@@ -36,40 +46,37 @@
                     <Label Text="Nombre:"
                            Grid.Row="0"
                            Grid.Column="0"
-                           VerticalTextAlignment="Center"/>
+                           VerticalTextAlignment="Center" />
 
-                    <Entry x:Name="txtName"
+                    <Entry x:Name="txtNombre"
                            Placeholder="Ingrese nombre."
-                           Grid.Row="0"
-                           Grid.Column="1"
-                           MaxLength="25"/>
+                               Grid.Row="0"
+                               Grid.Column="1" />
 
                     <Label Text="Apellido:"
-                           Grid.Row="1"
-                           Grid.Column="0"
-                           VerticalTextAlignment="Center"/>
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalTextAlignment="Center"/>
 
-                    <Entry x:Name="txtLastname"
-                           Placeholder="Ingrese Apellido."
-                           Grid.Row="1"
-                           Grid.Column="1"
-                           MaxLength="25"/>
+                    <Entry x:Name="txtApellido"
+                               Grid.Row="1"
+                               Grid.Column="1"/>
 
                     <Label Text="Edad:"
-                           Grid.Row="2"
-                           Grid.Column="0"
-                           VerticalTextAlignment="Center"/>
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalTextAlignment="Center"/>
 
                     <Entry x:Name="txtEdad"
-                           Placeholder="0"
                            Grid.Row="2"
                            Grid.Column="1"
                            Keyboard="Numeric"/>
-
                 </Grid>
-
             </Frame>
-
+            <Button x:Name="btnActualizar"
+                    Text="Actualizar"
+                    BackgroundColor="Orange"
+                    Clicked="btnActualizar_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -27,21 +27,26 @@ namespace cchuquitarcoT5
             _dbPath = dbPath;
         }
 
-        public void AddNewPerson(string name)
+        public void AddNewPerson(string nombre, string apellido, int edad)
         {
             int result = 0;
             try
             {
                 Init();
-                if (string.IsNullOrEmpty(name))
+                if (string.IsNullOrEmpty(nombre))
                     throw new Exception("El campo Nombre es requerido");
-                Persona persona = new() { Name = name };
-                result = conn.Insert(persona);
-                StatusMessage = string.Format("Se insertó una persona.", result, name);
+                Persona person = new()
+                {
+                    Nombre = nombre,
+                    Apellido = apellido,
+                    Edad = edad
+                };
+                result = conn.Insert(person);
+                StatusMessage = string.Format("Se insertó un nuevo registro.", result);
             }
             catch (Exception ex)
             {
-                StatusMessage = string.Format("Error! no se pudo insertar.", name, ex.Message);
+                StatusMessage = string.Format("Error! no se pudo insertar.", ex.Message);
             }
         }
 
@@ -65,21 +70,24 @@ namespace cchuquitarcoT5
             return conn.Table<Persona>().Where(x => x.Id == id).FirstOrDefault();
         }
 
-        public void EditPerson(int id, string name)
+        public void EditPerson(int id, string nombre, string apellido, int edad)
         {
             int result = 0;
             try
             {
                 Init();
-                if (string.IsNullOrEmpty(name))
+                if (string.IsNullOrEmpty(nombre))
                     throw new Exception("El campo Nombre es requerido");
                 Persona persona = conn.Table<Persona>().Where(x => x.Id == id).FirstOrDefault();
+                persona.Nombre = nombre;
+                persona.Apellido = apellido;
+                persona.Edad = edad;
                 result = conn.Update(persona);
-                StatusMessage = string.Format("Se actualizó una persona.", result, name);
+                StatusMessage = string.Format("Se actualizó una persona.", result);
             }
             catch (Exception ex)
             {
-                StatusMessage = string.Format("Error! no se pudo actualizar.", name, ex.Message);
+                StatusMessage = string.Format("Error! no se pudo actualizar.", ex.Message);
             }
         }
 

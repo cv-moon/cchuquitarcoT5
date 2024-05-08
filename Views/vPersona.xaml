@@ -74,7 +74,7 @@
                    VerticalOptions="Center" 
                    HorizontalOptions="Center" />
 
-            <CollectionView x:Name="clvPersona" SelectionMode="Single" SelectedItem="OnPersonaSelected">
+            <CollectionView x:Name="clvPersona" SelectionMode="Single" SelectionChanged="OnPersonaSelected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="#0487D9" BackgroundColor="Transparent">
@@ -85,14 +85,20 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
-                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Label Text="{Binding Id}" 
                                        Grid.Column="0"
                                        VerticalOptions="Center"/>
-                                <Label Text="{Binding Name}"
+                                <Label Text="{Binding Nombre}"
                                        Grid.Column="1"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding Apellido}"
+                                       Grid.Column="2"
+                                       VerticalOptions="Center"/>
+                                <Label Text="{Binding Edad}"
+                                       Grid.Column="3"
                                        VerticalOptions="Center"/>
                             </Grid>
                         </Frame>
